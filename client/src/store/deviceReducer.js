@@ -1,6 +1,14 @@
 const defaultState = {
-  types: [],
-  brands: [],
+  types: [
+    { id: 1, name: 'Fridges' },
+    { id: 2, name: 'Smartphones' },
+    { id: 3, name: 'Cleaners' },
+    { id: 4, name: 'Laptops' },
+  ],
+  brands: [
+    { id: 1, name: 'Samsung' },
+    { id: 2, name: 'Apple' },
+  ],
   devices: [],
   selectedType: {},
   selectedBrand: {},
