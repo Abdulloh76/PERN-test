@@ -1,10 +1,7 @@
 import React from 'react';
 import { Card, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setSelectedBrandAction,
-  setSelectedTypeAction,
-} from '../store/deviceReducer';
+import { setSelectedBrandAction } from '../store/deviceReducer';
 
 const BrandBar = () => {
   const dispatch = useDispatch();
@@ -14,7 +11,7 @@ const BrandBar = () => {
     <Row className='d-flex'>
       {device.brands.map((brand) => (
         <Card
-          style={{cursor: 'pointer'}}
+          style={{ cursor: 'pointer' }}
           key={brand.id}
           className='p-3'
           onClick={() => dispatch(setSelectedBrandAction(brand))}
