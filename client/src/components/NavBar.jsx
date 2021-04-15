@@ -1,13 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar, Nav, Button, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { SHOP_ROUTE } from '../utils/constants';
+import { NavLink, useHistory } from 'react-router-dom';
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/constants';
 import { setAuthAction } from '../store/userReducer';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const history = useHistory();
 
   const signIn = () => {
     dispatch(setAuthAction(true));
@@ -22,9 +23,18 @@ const NavBar = () => {
         <Nav className='ml-auto'>
           {user.isAuth ? (
             <>
-              <Button variant='outline-light'>Admin Panel</Button>
-              <Button variant='outline-light' className='ml-2'>
-                Sign In
+              <Button
+                variant='outline-light'
+                onClick={() => history.push(ADMIN_ROUTE)}
+              >
+                Admin Panel
+              </Button>
+              <Button
+                variant='outline-light'
+                onClick={() => history.push(LOGIN_ROUTE)}
+                className='ml-2'
+              >
+                Log Out
               </Button>
             </>
           ) : (
