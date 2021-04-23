@@ -1,5 +1,5 @@
 const defaultState = {
-  isAuth: true,
+  isAuth: false,
   user: {}
 };
 
